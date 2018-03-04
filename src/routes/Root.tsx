@@ -5,7 +5,10 @@ import {
     Route
 } from 'react-router-dom'
 import App from './App'
-import Page from './Page'
+import Settings from './Settings'
+import Runner from './Runner'
+import NoMatch from './NoMatch'
+import './Root.css'
 
 class Root extends React.Component {
     render(): any {
@@ -13,10 +16,12 @@ class Root extends React.Component {
             <Router>
                 <Switch>
                     <Route path="/" exact={true} component={App} />
-                    <Route path="/" exact={false} render={Page} />
+                    <Route path="/settings" exact={true} component={Settings} />
+                    <Route path="/runner" exact={true} component={Runner} />
+                    <Route component={NoMatch} />
                 </Switch>
             </Router>
-        )
+        );
     }
 }
 

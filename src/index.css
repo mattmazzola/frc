@@ -22,3 +22,11 @@ body {
   display: grid;
   grid-template: auto / 1fr minmax(300px, 700px) 1fr;
 }
+
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+

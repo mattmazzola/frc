@@ -1,0 +1,13 @@
+.frc-page {
+    display: grid;
+    grid-template: min-content 1fr / auto;
+    grid-column: 2;
+}
+
+.frc-page_header {
+    padding: 1em;
+}
+
+.frc-page_main {
+    padding: 1em;
+}

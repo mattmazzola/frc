@@ -8,7 +8,6 @@
   text-align: center;
   font-size: 3rem;
   padding: 1rem 0;
-  box-shadow: 0 0 10px 0px rgba(204, 12, 12, 0.3);
 }
 .frc_header h1 {
   margin: 0;
@@ -24,7 +23,6 @@
   grid-gap: 1em;
   grid-auto-flow: column;
   padding: 1em 2em;
-  box-shadow: 0 0 10px 0px rgba(255,255,255, 0.3);
 }
 
 .frc_footer .link {
