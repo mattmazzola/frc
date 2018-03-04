@@ -179,3 +179,4 @@ export const pailsLowerBody: models.IMovement[] = [
         name: 'Squat PAILS/RAILS Progression with Stall Bars (Ankle Dorsiflexion)'
     }
 ]
+

@@ -24,6 +24,24 @@
   padding: 2em;
 }
 
+.frc_footer button {
+  background: rgb(117, 30, 30);
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.75em 1em;
+}
+
 .movements {
+  width: 100%;
   position: absolute;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: min-content;
+}
+
+.movements > * {
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 1rem 1rem;
 }
