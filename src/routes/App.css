@@ -8,6 +8,7 @@
   text-align: center;
   font-size: 3rem;
   padding: 1rem 0;
+  box-shadow: 0 0 10px 0px rgba(204, 12, 12, 0.3);
 }
 .frc_header h1 {
   margin: 0;
@@ -21,19 +22,24 @@
 .frc_footer {
   display: grid;
   grid-gap: 1em;
-  padding: 2em;
+  grid-auto-flow: column;
+  padding: 1em 2em;
+  box-shadow: 0 0 10px 0px rgba(255,255,255, 0.3);
 }
 
-.frc_footer button {
+.frc_footer .link {
   background: rgb(117, 30, 30);
   border: none;
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   padding: 0.75em 1em;
+  text-align: center;
+  text-decoration: none;
 }
 
 .movements {
   width: 100%;
+  background-color: rgba(255,255,255,0.1);
   position: absolute;
   display: grid;
   grid-auto-flow: row;
