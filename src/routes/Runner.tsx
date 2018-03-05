@@ -5,7 +5,7 @@ import {
 
 export default function () {
     return <div className="frc-page">
-        <NavLink className="frc-page_header" to="/">Program</NavLink>
+        <NavLink className="frc-page_header" to="/"><i className="material-icons">arrow_back</i> Program</NavLink>
         <main className="frc-page_main">
             Runner
         </main>

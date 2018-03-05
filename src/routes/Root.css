@@ -6,6 +6,7 @@
 
 .frc-page_header {
     padding: 1em;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .frc-page_main {

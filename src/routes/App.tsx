@@ -81,8 +81,8 @@ class App extends React.Component<{}, State> {
             </div>
           </main>
           <footer className="frc_footer">
-            <NavLink className="link" to="/runner" exact={true}>Start</NavLink>
-            <NavLink className="link" to="/settings" exact={true}>Settings</NavLink>
+            <NavLink className="link link-default" to="/settings" exact={true}><i className="material-icons">settings</i> Settings</NavLink>
+            <NavLink className="link link-primary" to="/runner" exact={true}><i className="material-icons">play_circle_outline</i> Start</NavLink>
           </footer>
         </div>
     );
