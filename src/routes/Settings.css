@@ -1,0 +1,25 @@
+.settings {
+    padding: 1em;
+    display: grid;
+    grid-template: auto / minmax(min-content, 1fr) 3fr;
+    grid-gap: 0.5em;
+    font-size: 2rem;
+}
+
+.settings > div {
+    text-align: right;
+}
+
+.settings label {
+    padding: 0.3em 0;
+    white-space: nowrap;
+}
+
+.settings input[type="number"] {
+    width: 6ch;
+    font-size: 2rem;
+    padding: 0.5em;
+    text-align: right;
+    background: rgb(204, 204, 204);
+    border: 2px solid rgb(52,52,52);
+}

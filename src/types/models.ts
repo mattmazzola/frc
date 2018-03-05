@@ -14,3 +14,4 @@ export interface ISelectableMovement {
     movement: IMovement
     checked: boolean
 }
+

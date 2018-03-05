@@ -15,6 +15,13 @@ const reducer: Reducer<SettingsState> = (state = initialState, action: ActionObj
         case AT.SETTINGS_RESET: {
             return initialState
         }
+        case AT.SETTINGS_UPDATE: {
+            const { type, ...newValues } = action
+            return {
+                ...state,
+                ...newValues
+            }
+        }
         default:
             return state
     }
