@@ -11,7 +11,7 @@ import NoMatch from './NoMatch'
 import './Root.css'
 
 class Root extends React.Component {
-    render(): any {
+    render() {
         return (
             <Router>
                 <Switch>

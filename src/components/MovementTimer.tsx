@@ -9,7 +9,7 @@ interface Props {
 
 export default function (props: Props) {
     return <div className="movement-timer">
-        <div className="movement-timer_name">Name: HIP CARS</div>
+        <div className="movement-timer_name">Name: {props.movement.name}</div>
         <img src="//via.placeholder.com/350x150" alt="testing" width="100%" />
         <div>
             <div className="movement-timer_timers">
