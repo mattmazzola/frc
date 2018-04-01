@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: min-content 1fr min-content;
   grid-column: 2;
+  background: black;
 }
 
 .frc_header {
