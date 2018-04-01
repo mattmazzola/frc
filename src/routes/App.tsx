@@ -65,7 +65,7 @@ class App extends React.Component<{}, State> {
       }
 
       const selectedMovements = Object.keys(movementsSelected)
-        .map<ISelectableMovement[]>(key => prevState[key])
+        .map<ISelectableMovement[]>(key => nextState[key])
         .map(category => category.filter(s => s.checked).map(s => s.movement))
         .reduce((a, b) => a.concat(b))
 
