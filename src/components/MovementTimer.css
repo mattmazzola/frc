@@ -17,6 +17,13 @@
     padding: 0.2em 1em;
 }
 
+.movement-timer_value {
+    display: grid;
+    grid-template: auto / min-content min-content min-content min-content;
+    grid-gap: 0.4em;
+    justify-self: right;
+}
+
 .movement-timer_buttons {
     padding: 1em;
 }

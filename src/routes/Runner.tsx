@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom'
 import './Runner.css'
 import { RouteComponentProps } from 'react-router'
-import MovementTimer from '../components/MovementTimer'
+import MovementTimerContainer from '../components/MovementTimerContainer'
 import { IMovement } from '../types';
 
 interface Props extends RouteComponentProps<any> {
@@ -52,8 +52,8 @@ export default class Runner extends React.Component<Props, State> {
         }))
     }
 
-    onClickPause = () => {
-        console.log(`onClickPause`)
+    onNextMovement = () => {
+        this.getNextMovement(this.state)
     }
 
     private getPrevMovement(state: State) {
@@ -82,9 +82,9 @@ export default class Runner extends React.Component<Props, State> {
                 <header onClick={this.onClickPrev}>
                     <i className="material-icons">arrow_back</i> Prev: {prevMovement ? prevMovement.name : 'None'}
                 </header>
-                <MovementTimer
+                <MovementTimerContainer
                     movement={currentMovement}
-                    onClickPause={this.onClickPause}
+                    onNextMovement={this.onNextMovement}
                 />
                 <footer onClick={this.onClickNext}>
                     <i className="material-icons">arrow_forward</i>  Next: {nextMovement ? nextMovement.name : 'None'}
