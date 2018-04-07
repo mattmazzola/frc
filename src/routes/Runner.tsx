@@ -53,7 +53,13 @@ export default class Runner extends React.Component<Props, State> {
     }
 
     onNextMovement = () => {
-        this.getNextMovement(this.state)
+        const nextMovement = this.getNextMovement(this.state)
+
+        if (!nextMovement) {
+            return
+        }
+
+        this.onClickNext()
     }
 
     private getPrevMovement(state: State) {

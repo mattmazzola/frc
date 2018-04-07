@@ -4,9 +4,9 @@ import { AT } from '../types/ActionTypes'
 import { Reducer } from 'redux'
 
 const initialState: SettingsState = {
-    passive: 120,
-    pails: 15,
-    rails: 15,
+    passive: 10,
+    pails: 5,
+    rails: 5,
     rounds: 2
 }
 

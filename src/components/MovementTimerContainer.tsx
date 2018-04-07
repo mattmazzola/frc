@@ -21,8 +21,11 @@ interface ReceivedProps {
 }
 
 const global = window
+const keyOrder = ['passive', 'pails', 'rails']
+// const lastKey = keyOrder[keyOrder.length - 1]
 
 class Component extends React.Component<Props, State> {
+    currentKeyIndex: number = 0
     timer: number | null = null
     constructor(props: Props) {
         super(props)
@@ -36,6 +39,18 @@ class Component extends React.Component<Props, State> {
     }
 
     componentWillMount() {
+        this.currentKeyIndex = 0
+        this.start()
+    }
+
+    componentWillReceiveProps(nextProps: Props) {
+        const { settings } = nextProps
+        
+        this.setState({
+            ...settings,
+            isPaused: false
+        })
+
         this.start()
     }
 
@@ -43,7 +58,7 @@ class Component extends React.Component<Props, State> {
         this.pause()
     }
 
-    start() {
+    start= () => {
         if (!this.timer) {
             this.timer = global.setInterval(() => this.run(), 1000)
             this.setState({
@@ -52,7 +67,7 @@ class Component extends React.Component<Props, State> {
         }
     }
 
-    pause() {
+    pause = () => {
         if (this.timer) {
             global.clearInterval(this.timer)
         }
@@ -63,10 +78,37 @@ class Component extends React.Component<Props, State> {
     }
 
     run() {
-        console.log(`run`, new Date().getTime())
-        this.setState(prevState => ({
-            passive: prevState.passive - 1 > 0 ? prevState.passive - 1 : this.props.settings.passive
-        }))
+        const currentKey = keyOrder[this.currentKeyIndex]
+
+        // Check off by one error
+        if (this.state.rounds === 0) { // && this.state[lastKey] === 0) {
+            console.log('run#onNextMovement()')
+            this.pause()
+            this.props.onNextMovement()
+            return
+        }
+
+        this.setState(prevState => {
+            const nextValue = prevState[currentKey] - 1 >= 0 ? prevState[currentKey] - 1 : this.props.settings[currentKey]
+            let nextState = {
+                [currentKey]: nextValue
+            }
+
+            // If current key's value has reached 0 reset and move to next key
+            // Otherwise, decrement value
+            if (nextValue === 0) {
+                const nextKeyIndex = (this.currentKeyIndex + 1) % keyOrder.length
+                nextState[currentKey] = this.props.settings[currentKey]
+                
+                if (this.currentKeyIndex === keyOrder.length - 1) {
+                    nextState.rounds = prevState.rounds - 1   
+                }
+                this.currentKeyIndex = nextKeyIndex
+                console.log(`nextValue === 0: this.currentKeyIndex: `, this.currentKeyIndex)
+            }
+
+            return nextState as any
+        })
     }
 
     render() {
