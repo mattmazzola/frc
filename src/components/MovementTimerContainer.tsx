@@ -94,14 +94,15 @@ class Component extends React.Component<Props, State> {
                 [currentKey]: nextValue
             }
 
-            // If current key's value has reached 0 reset and move to next key
+            // If current key's value has reached 0 move to next key
             // Otherwise, decrement value
             if (nextValue === 0) {
                 const nextKeyIndex = (this.currentKeyIndex + 1) % keyOrder.length
-                nextState[currentKey] = this.props.settings[currentKey]
+                // nextState[currentKey] = this.props.settings[currentKey]
                 
                 if (this.currentKeyIndex === keyOrder.length - 1) {
-                    nextState.rounds = prevState.rounds - 1   
+                    nextState = { ...this.props.settings }
+                    nextState.rounds = prevState.rounds - 1
                 }
                 this.currentKeyIndex = nextKeyIndex
                 console.log(`nextValue === 0: this.currentKeyIndex: `, this.currentKeyIndex)
