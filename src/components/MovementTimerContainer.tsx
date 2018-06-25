@@ -8,6 +8,7 @@ import './MovementTimer.css'
 import MovementTimer from './MovementTimer'
 
 interface State {
+    seconds: number
     passive: number
     pails: number
     rails: number
@@ -21,11 +22,8 @@ interface ReceivedProps {
 }
 
 const global = window
-const keyOrder = ['passive', 'pails', 'rails']
-// const lastKey = keyOrder[keyOrder.length - 1]
 
 class Component extends React.Component<Props, State> {
-    currentKeyIndex: number = 0
     timer: number | null = null
     constructor(props: Props) {
         super(props)
@@ -34,20 +32,19 @@ class Component extends React.Component<Props, State> {
         
         this.state = {
             ...settings,
+            seconds: 0,
             isPaused: false
         }
     }
 
     componentWillMount() {
-        this.currentKeyIndex = 0
         this.start()
     }
 
     componentWillReceiveProps(nextProps: Props) {
-        const { settings } = nextProps
-        
         this.setState({
-            ...settings,
+            ...nextProps.settings,
+            seconds: 0,
             isPaused: false
         })
 
@@ -78,37 +75,38 @@ class Component extends React.Component<Props, State> {
     }
 
     run() {
-        const currentKey = keyOrder[this.currentKeyIndex]
-
-        // Check off by one error
-        if (this.state.rounds === 0) { // && this.state[lastKey] === 0) {
-            console.log('run#onNextMovement()')
-            this.pause()
-            this.props.onNextMovement()
-            return
-        }
+        const { settings } = this.props
+        const totalRoundSeconds = settings.passive + settings.pails + settings.rails
 
         this.setState(prevState => {
-            const nextValue = prevState[currentKey] - 1 >= 0 ? prevState[currentKey] - 1 : this.props.settings[currentKey]
-            let nextState = {
-                [currentKey]: nextValue
-            }
+            const nextSeconds = prevState.seconds + 1
+            const nextRound = Math.floor(nextSeconds / totalRoundSeconds)
+            
+            if (nextRound === settings.rounds) {
+                this.pause()
+                this.props.onNextMovement()
 
-            // If current key's value has reached 0 move to next key
-            // Otherwise, decrement value
-            if (nextValue === 0) {
-                const nextKeyIndex = (this.currentKeyIndex + 1) % keyOrder.length
-                // nextState[currentKey] = this.props.settings[currentKey]
-                
-                if (this.currentKeyIndex === keyOrder.length - 1) {
-                    nextState = { ...this.props.settings }
-                    nextState.rounds = prevState.rounds - 1
+                return {
+                    seconds: 0,
+                    passive: prevState.passive,
+                    pails: prevState.pails,
+                    rails: prevState.rails,
+                    rounds: prevState.rounds
                 }
-                this.currentKeyIndex = nextKeyIndex
-                console.log(`nextValue === 0: this.currentKeyIndex: `, this.currentKeyIndex)
             }
 
-            return nextState as any
+            const timeIntoNextRound = nextSeconds % totalRoundSeconds
+            const passive = Math.min(settings.passive, timeIntoNextRound)
+            const pails = Math.min(settings.pails, timeIntoNextRound - passive)
+            const rails = Math.min(settings.rails, timeIntoNextRound - passive - pails)
+
+            return {
+                seconds: prevState.seconds + 1,
+                passive: settings.passive - passive,
+                pails: settings.pails - pails,
+                rails: settings.rails - rails,
+                rounds: settings.rounds - nextRound
+            }
         })
     }
 
