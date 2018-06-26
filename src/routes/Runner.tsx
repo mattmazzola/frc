@@ -85,16 +85,18 @@ export default class Runner extends React.Component<Props, State> {
         return <div className="frc-page">
             <NavLink className="frc-page_header" to="/"><i className="material-icons">arrow_back</i> Program</NavLink>
             <main className="frc-page_main">
-                <header onClick={this.onClickPrev}>
-                    <i className="material-icons">arrow_back</i> Prev: {prevMovement ? prevMovement.name : 'None'}
+                <header className="frc-movement_header">
+                    <div className="frc-movement_prev" onClick={this.onClickPrev}>
+                        <div className="frc-movement_prev-icon"><i className="material-icons">arrow_back</i></div><div className="frc-movement_prev-text frc-o-nowrap">{prevMovement ? prevMovement.name : 'Start'}</div>
+                    </div>
+                    <div className="frc-movement_next" onClick={this.onClickNext}>
+                        <div className="frc-movement_prev-text frc-o-nowrap">{nextMovement ? nextMovement.name : 'End'}</div><div className="frc-movement_prev-icon"><i className="material-icons">arrow_forward</i></div>
+                    </div>
                 </header>
                 <MovementTimerContainer
                     movement={currentMovement}
                     onNextMovement={this.onNextMovement}
                 />
-                <footer onClick={this.onClickNext}>
-                    <i className="material-icons">arrow_forward</i>  Next: {nextMovement ? nextMovement.name : 'None'}
-                </footer>
             </main>
         </div>
     }

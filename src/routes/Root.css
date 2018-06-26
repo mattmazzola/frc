@@ -15,13 +15,6 @@
 }
 
 .frc-page_main > header {
-    padding: 1em;
     border-bottom: 1px solid rgba(255,255,255,0.2);
-    cursor: pointer;
-}
-
-.frc-page_main > footer {
-    padding: 1em;
-    border-top: 1px solid rgba(255,255,255,0.2);
     cursor: pointer;
 }

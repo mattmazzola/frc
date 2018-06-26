@@ -3,18 +3,21 @@
     grid-template: min-content min-content 1fr min-content / auto;
 }
 .movement-timer_name {
-    padding: 1em;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 3.2rem;
 }
 
 .movement-timer_timers {
     display: grid;
     grid-template: auto / 1fr 1fr;
-    font-size: 2rem;
-    margin-top: 1em;
+    font-size: 3rem;
+    margin-top: 1rem;
 }
 
 .movement-timer_timers > * {
-    padding: 0.2em 1em;
+    padding: 0em 0.5em;
 }
 
 .movement-timer_value {
@@ -29,6 +32,7 @@
 }
 
 .movement-timer_buttons button {
+    cursor: pointer;
     width: 100%;
     border: none;
     color: white;
