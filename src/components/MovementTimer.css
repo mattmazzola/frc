@@ -12,23 +12,25 @@
 .movement-timer_timers {
     display: grid;
     grid-template: auto / 1fr 1fr;
+    grid-gap: 0.3em 0.5em;
     font-size: 3rem;
     margin-top: 1rem;
 }
 
-.movement-timer_timers > * {
-    padding: 0em 0.5em;
-}
-
 .movement-timer_value {
     display: grid;
-    grid-template: auto / min-content min-content min-content min-content;
+    grid-template: auto / min-content min-content min-content;
     grid-gap: 0.4em;
     justify-self: right;
 }
 
 .movement-timer_buttons {
-    padding: 1em;
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.movement-timer_buttons i {
+    font-size: 1.1em;
 }
 
 .movement-timer_buttons button {
@@ -36,11 +38,14 @@
     width: 100%;
     border: none;
     color: white;
-    font-size: 1.5rem;
     padding: 0.75em 1em;
     text-align: center;
     text-decoration: none;
     background: rgb(117, 30, 30);
+    transition: background-color 0.1s ease-in;
+}
+.movement-timer_buttons button:hover {
+    background-color: rgb(131, 37, 37);
 }
 
 .movement-timer_value {

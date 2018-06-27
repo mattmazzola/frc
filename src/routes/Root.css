@@ -9,6 +9,14 @@
     border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
+.frc-page_header {
+    transition: background-color 0.1s ease-in;
+}
+
+.frc-page_header:hover {
+    background-color: rgba(255, 255, 255, 0.1)
+}
+
 .frc-page_main {
     display: grid;
     grid-template: min-content 1fr min-content / auto;

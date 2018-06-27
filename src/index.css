@@ -30,10 +30,13 @@ a:hover {
   color: inherit;
 }
 
-
-
-.frc-o-nowrap {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+h1 {
+  font-size: 1.7em;
+  margin: 0.1em 0;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.3em;
 }

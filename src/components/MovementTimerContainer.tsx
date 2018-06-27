@@ -6,6 +6,7 @@ import { ReduxState } from '../types'
 import { IMovement } from "../types"
 import './MovementTimer.css'
 import MovementTimer from './MovementTimer'
+import { delay } from '../services/utilities';
 
 interface State {
     seconds: number
@@ -29,7 +30,7 @@ class Component extends React.Component<Props, State> {
         super(props)
 
         const { settings } = props
-        
+
         this.state = {
             ...settings,
             seconds: 0,
@@ -37,16 +38,32 @@ class Component extends React.Component<Props, State> {
         }
     }
 
-    componentWillMount() {
+    async componentWillMount() {
+        const name = this.props.movement.name
+        await this.say(name)
+        await this.say('Get ready', 10000)
+        await this.say('Start')
         this.start()
     }
 
-    componentWillReceiveProps(nextProps: Props) {
+    async say(text: string, wait: number = 1000) {
+        const utterance = new SpeechSynthesisUtterance(text)
+        global.speechSynthesis.speak(utterance)
+        await delay(wait)
+    }
+
+    async componentWillReceiveProps(nextProps: Props) {
+        this.pause()
         this.setState({
             ...nextProps.settings,
             seconds: 0,
             isPaused: false
         })
+
+        const name = nextProps.movement.name
+        await this.say(name)
+        await this.say('Get ready', 10000)
+        await this.say('Start')
 
         this.start()
     }
@@ -81,7 +98,7 @@ class Component extends React.Component<Props, State> {
         this.setState(prevState => {
             const nextSeconds = prevState.seconds + 1
             const nextRound = Math.floor(nextSeconds / totalRoundSeconds)
-            
+
             if (nextRound === settings.rounds) {
                 this.pause()
                 this.props.onNextMovement()
@@ -96,6 +113,22 @@ class Component extends React.Component<Props, State> {
             }
 
             const timeIntoNextRound = nextSeconds % totalRoundSeconds
+
+            if (timeIntoNextRound === 1) {
+                this.say('Passive')
+            }
+            else if (timeIntoNextRound === settings.passive) {
+                this.say('Pails')
+            }
+            else if (timeIntoNextRound === settings.passive + settings.pails) {
+                this.say('Rails')
+            }
+            
+            const rounds = settings.rounds - nextRound
+            if (rounds !== prevState.rounds) {
+                this.say(`Round: ${nextRound + 1}`)
+            }
+
             const passive = Math.min(settings.passive, timeIntoNextRound)
             const pails = Math.min(settings.pails, timeIntoNextRound - passive)
             const rails = Math.min(settings.rails, timeIntoNextRound - passive - pails)
@@ -105,7 +138,7 @@ class Component extends React.Component<Props, State> {
                 passive: settings.passive - passive,
                 pails: settings.pails - pails,
                 rails: settings.rails - rails,
-                rounds: settings.rounds - nextRound
+                rounds
             }
         })
     }

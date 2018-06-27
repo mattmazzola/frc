@@ -1,3 +1,6 @@
+body {
+  font-size: 22px;
+}
 .frc {
   display: grid;
   grid-template-rows: min-content 1fr min-content;
@@ -8,9 +11,6 @@
 .frc_header {
   text-align: center;
   font-size: 3rem;
-}
-.frc_header h1 {
-  margin: 0;
 }
 
 .frc_main {
@@ -69,4 +69,11 @@
 
 .material-icons {
   vertical-align: sub;
+  font-size: inherit;
+}
+
+.frc-o-nowrap {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
