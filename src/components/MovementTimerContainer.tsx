@@ -41,7 +41,10 @@ class Component extends React.Component<Props, State> {
     async componentWillMount() {
         const name = this.props.movement.name
         await this.say(name)
-        await this.say('Get ready', 10000)
+        await this.say('Get ready in 10 seconds', 7000)
+        await this.say('3')
+        await this.say('2')
+        await this.say('1')
         await this.say('Start')
         this.start()
     }
@@ -62,7 +65,10 @@ class Component extends React.Component<Props, State> {
 
         const name = nextProps.movement.name
         await this.say(name)
-        await this.say('Get ready', 10000)
+        await this.say('Get ready in 10 seconds', 7000)
+        await this.say('3')
+        await this.say('2')
+        await this.say('1')
         await this.say('Start')
 
         this.start()
