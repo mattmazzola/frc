@@ -1,3 +1,9 @@
+export interface CarsSettingsState {
+    clockwiseRotations: number
+    counterClockwiseRotations: number
+    duration: number
+}
+
 export interface SettingsState {
     passive: number
     pails: number
@@ -6,5 +12,6 @@ export interface SettingsState {
 }
 
 export interface ReduxState {
+    carsSettings: CarsSettingsState
     settings: SettingsState
 }

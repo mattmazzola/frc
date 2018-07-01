@@ -25,6 +25,7 @@ interface ReceivedProps {
 const global = window
 
 class Component extends React.Component<Props, State> {
+    isItMounted: boolean = false
     timer: number | null = null
     constructor(props: Props) {
         super(props)
@@ -38,7 +39,8 @@ class Component extends React.Component<Props, State> {
         }
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
+        this.isItMounted = true
         const name = this.props.movement.name
         await this.say(name)
         await this.say('Get ready in 10 seconds', 7000)
@@ -50,6 +52,10 @@ class Component extends React.Component<Props, State> {
     }
 
     async say(text: string, wait: number = 1000) {
+        if (!this.isItMounted) {
+            return
+        }
+
         const utterance = new SpeechSynthesisUtterance(text)
         global.speechSynthesis.speak(utterance)
         await delay(wait)
@@ -75,7 +81,9 @@ class Component extends React.Component<Props, State> {
     }
 
     componentWillUnmount() {
+        global.speechSynthesis.cancel()
         this.pause()
+        this.isItMounted = false
     }
 
     start= () => {

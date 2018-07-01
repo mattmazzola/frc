@@ -7,9 +7,6 @@
 .frc-page_header {
     padding: 1em;
     border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-.frc-page_header {
     transition: background-color 0.1s ease-in;
 }
 
@@ -25,4 +22,33 @@
 .frc-page_main > header {
     border-bottom: 1px solid rgba(255,255,255,0.2);
     cursor: pointer;
+}
+
+.frc-nav-list {
+    position: relative;
+    overflow: auto;
+}
+
+
+.frc-nav-page {
+    display: grid;
+    grid-template: min-content min-content 1fr / auto;
+    grid-column: 2;
+}
+
+
+.frc-nav-page_header {
+    padding: 1em;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    transition: background-color 0.1s ease-in;
+}
+
+.frc-nav-page_header:hover {
+    background-color: rgba(255, 255, 255, 0.1)
+}
+
+.frc-nav-page_title {
+    padding: 1em;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    font-size: 1.5rem;
 }

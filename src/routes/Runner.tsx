@@ -4,10 +4,10 @@ import {
 } from 'react-router-dom'
 import './Runner.css'
 import { RouteComponentProps } from 'react-router'
-import MovementTimerContainer from '../components/MovementTimerContainer'
 import { IMovement } from '../types';
 
 interface Props extends RouteComponentProps<any> {
+    render: (currentMovement: IMovement, onNextMovement: () => void) => React.ReactNode
 }
 
 interface State {
@@ -93,10 +93,7 @@ export default class Runner extends React.Component<Props, State> {
                         <div className="frc-movement_prev-text frc-o-nowrap">{nextMovement ? nextMovement.name : 'End'}</div><div className="frc-movement_prev-icon"><i className="material-icons">arrow_forward</i></div>
                     </div>
                 </header>
-                <MovementTimerContainer
-                    movement={currentMovement}
-                    onNextMovement={this.onNextMovement}
-                />
+                {this.props.render(currentMovement, this.onNextMovement)}
             </main>
         </div>
     }
