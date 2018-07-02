@@ -17,6 +17,7 @@ interface ReceivedProps {
     onStart: () => void
     onPause: () => void
 }
+
 function getDurationString(seconds: number) {
     const duration = moment.duration(seconds, 'seconds')
     const durationSeconds = duration.seconds()
@@ -25,9 +26,11 @@ function getDurationString(seconds: number) {
 }
 
 export default function (props: ReceivedProps) {
+    const imgUrl = props.movement.imgUrl || "//via.placeholder.com/350x150"
+
     return <div className="movement-timer">
         <div className="movement-timer_name">{props.movement.name}</div>
-        <img src="//via.placeholder.com/350x150" alt="testing" width="100%" />
+        <img src={imgUrl} alt={`Person demonstrating the move: ${props.movement.name}`} width="100%" />
         <div>
             <div className="movement-timer_timers">
                 <div className="movement-timer_value"><span>{getDurationString(props.passive)}</span><span>/</span><span>{getDurationString(props.maxPassive)}</span></div><div>Passive</div>

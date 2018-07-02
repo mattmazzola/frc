@@ -2,181 +2,226 @@ import * as models from '../types/models'
 
 export const carsLowerBody: models.IMovement[] = [
     {
-        name: 'Standing Hip CARs'
+        name: 'Standing Hip CARs',
+        imgUrl: '/images/cars-lower-standing-hip.webp'
     },
     {
-        name: 'Seated Knee CARs'
+        name: 'Seated Knee CARs',
+        imgUrl: '/images/cars-lower-seated-knee.webp'
     },
     {
-        name: 'Seated Ankle CARs'
+        name: 'Seated Ankle CARs',
+        imgUrl: '/images/cars-lower-seated-ankle.webp'
     },
     {
-        name: 'Patella CARs'
+        name: 'Patella CARs',
+        imgUrl: '/images/cars-lower-patella.webp'
     },
     {
-        name: 'Toe CARs'
+        name: 'Toe CARs',
+        imgUrl: '/images/cars-lower-toes.webp'
     },
     {
-        name: 'Contralateral & Elevated Quadruped Hip CARs (Advanced)'
+        name: 'Contralateral & Elevated Quadruped Hip CARs (Advanced)',
+        imgUrl: '/images/cars-lower-contra-hip.webp'
     },
     {
-        name: 'Hip CKC Standing'
-    },
-    {
-        name: 'Toe Work'
-    },
-    {
-        name: 'Ankle (OKC & CKC)'
-    },
-    {
-        name: 'Hip Sleeper'
-    },
-    {
-        name: 'Patellofemoral Joint'
-    },
-    {
-        name: 'Hip Sidelying'
-    },
-    {
-        name: 'Hip Standing'
-    },
-    {
-        name: 'Knee OKC & OKC'
-    },
+        name: 'Hip Sleeper',
+        imgUrl: '/images/cars-lower-hip-sleeper.webp'
+    }
 ]
 
 export const carsUpperBody: models.IMovement[] = [
     {
-        name: 'Standing Wrist CARs'
+        name: 'Standing Scapular CARs',
+        imgUrl: '/images/cars-upper-scapula.webp'
     },
     {
-        name: 'Standing Scapular CARs'
+        name: 'Standing Glenohumeral (Right Arm) CARs',
+        imgUrl: '/images/cars-upper-gh.webp'
     },
     {
-        name: 'Standing Glenohumeral Joint CARs'
+        name: 'Standing Glenohumeral (Left Arm) CARs',
+        imgUrl: '/images/cars-upper-gh.webp'
     },
     {
-        name: 'Standing Elbow CARs'
+        name: 'Standing Elbow CARs',
+        imgUrl: '/images/cars-upper-elbow.webp'
     },
     {
-        name: 'Shoulder (Axial Work)'
+        name: 'Standing Wrist CARs',
+        imgUrl: '/images/cars-upper-wrist.webp'
     },
     {
-        name: 'Fingers'
+        name: 'Shoulder (Axial Work)',
+        imgUrl: '/images/cars-upper-axial.webp'
     },
     {
-        name: 'Wrist (OKC & CKC)'
+        name: 'Fingers',
+        imgUrl: '/images/cars-upper-fingers.webp'
     },
     {
-        name: 'Scapula (OKC & CKC)'
+        name: 'Standing Glenohumeral External (Right Arm) CARs',
+        imgUrl: '/images/cars-upper-gh-external.webp'
     },
     {
-        name: 'Elbow (OKC & CKC)'
+        name: 'Standing Glenohumeral Internal (Right Arm) CARs',
+        imgUrl: '/images/cars-upper-gh-internal.webp'
+    },
+    {
+        name: 'Standing Glenohumeral External (Left Arm) CARs',
+        imgUrl: '/images/cars-upper-gh-external.webp'
+    },
+    {
+        name: 'Standing Glenohumeral Internal (Left Arm) CARs',
+        imgUrl: '/images/cars-upper-gh-internal.webp'
     }
 ]
 
 export const spinalMovements: models.IMovement[] = [
     {
-        name: 'Spinal Hinge Point Training (Flexion/Extension)'
+        name: 'Standing Cervical Spine CARs',
+        imgUrl: '/images/cars-spine-cervical.webp'
     },
     {
-        name: 'Hinge Point Training (Segmental Spinal Rotation)'
+        name: 'Standing Thoracic: Lumbar CARs',
+        imgUrl: '/images/cars-spine-thoracic.webp'
     },
     {
-        name: 'CARs – Multi Positional Cervical Spine [global rotations]'
+        name: 'Global Lumbar & Thoracic Spine (Standing)',
+        imgUrl: '/images/cars-spine-global.webp'
     },
     {
-        name: 'Standing Thoracic: Lumbar CARs'
-    },
-    {
-        name: 'Standing Cervical Spine CARs'
-    },
-    {
-        name: 'Segmented Cat Camel with active spinal blocks'
-    },
-    {
-        name: 'Elevated Cat Camel'
-    },
-    {
-        name: 'Spinal CARS (w Wall Block)'
-    },
-    {
-        name: 'Thoracic Cat Camel'
-    },
-    {
-        name: 'Segmental Cervical Spine Using Axis Point'
-    },
-    {
-        name: 'Segmental Thoracic Rotation With Ball'
-    },
-    {
-        name: 'Global Lumbar & Thoracic Spine (Standing)'
-    },
-    {
-        name: 'Full Spine Cat-Camel'
-    },
-    {
-        name: 'Global Cervical Spine'
-    },
-    {
-        name: 'Segmental Lumbar (or Thoracic) Spine With Ball'
-    },
-    {
-        name: 'Segmental Cervical Spine'
+        name: 'Full Spine Cat-Camel',
+        imgUrl: '/images/cars-spine-catcamel.webp'
     }
 ]
+
+// export const extras = [
+//     {
+//         name: 'Spinal Hinge Point Training (Flexion/Extension)'
+//     },
+//     {
+//         name: 'Hinge Point Training (Segmental Spinal Rotation)'
+//     },
+//     {
+//         name: 'CARs – Multi Positional Cervical Spine [global rotations]'
+//     },
+//     {
+//         name: 'Segmented Cat Camel with active spinal blocks'
+//     },
+//     {
+//         name: 'Elevated Cat Camel'
+//     },
+//     {
+//         name: 'Spinal CARS (w Wall Block)'
+//     },
+//     {
+//         name: 'Thoracic Cat Camel'
+//     },
+//     {
+//         name: 'Segmental Cervical Spine Using Axis Point'
+//     },
+//     {
+//         name: 'Segmental Thoracic Rotation With Ball'
+//     },
+//     {
+//         name: 'Global Cervical Spine'
+//     },
+//     {
+//         name: 'Segmental Lumbar (or Thoracic) Spine With Ball'
+//     },
+//     {
+//         name: 'Segmental Cervical Spine'
+//     }
+// ]
 
 export const pailsUpperBody: models.IMovement[] = [
     {
-        name: 'Americana PAILs/RAILs (GH Ext Rotation)'
+        name: 'Americana (GH ER)',
+        imgUrl: '/images/pailsrails-upper-americana.webp'
     },
     {
-        name: 'Doorway Stretch PAILs/RAILs'
+        name: 'Doorway Stretch',
+        imgUrl: '/images/pailsrails-upper-doorway.webp'
     },
     {
-        name: 'Scapular Retraction Using Rings: PAILs / RAILs'
+        name: 'Stick Kimura (GH IR)',
+        imgUrl: '/images/pailsrails-upper-kimura.webp'
     },
     {
-        name: 'Shoulder Internal Rotation PAILs / RAILs'
+        name: 'Wrist Supination',
+        imgUrl: '/images/pailsrails-upper-wrist-supination.webp'
     },
     {
-        name: 'Shoulder Flexion PAILs / RAILs'
-    },
-    {
-        name: 'Shoulder External Rotation PAILs / RAILs'
-    },
-    {
-        name: 'Stick Key Lock [GH ER] – PAILs/RAILs'
-    },
-    {
-        name: 'Stick Kimura [GH IR] – PAILs/RAILs'
-    },
-    {
-        name: 'Multirange PAILS/RAILS: Scapular Protraction'
+        name: 'Wrist Extension',
+        imgUrl: '/images/pailsrails-upper-wrist-extension.webp'
     }
 ]
 
+// const extraPailsRails = [
+//     {
+//         name: 'Scapular Retraction Using Rings',
+//         imgUrl: '/images/pailsrails-upper-.webp'
+//     },
+//     {
+//         name: 'Shoulder Internal Rotation',
+//         imgUrl: '/images/pailsrails-upper-.webp'
+//     },
+//     {
+//         name: 'Shoulder Flexion',
+//         imgUrl: '/images/pailsrails-upper-.webp'
+//     },
+//     {
+//         name: 'Shoulder External Rotation',
+//         imgUrl: '/images/pailsrails-upper-.webp'
+//     },
+//     {
+//         name: 'Stick Key Lock [GH ER]',
+//         imgUrl: '/images/pailsrails-upper-.webp'
+//     },
+//     {
+//         name: 'Stick Kimura [GH IR]',
+//         imgUrl: '/images/pailsrails-upper-.webp'
+//     },
+//     {
+//         name: 'Multirange: Scapular Protraction',
+//         imgUrl: '/images/pailsrails-upper-.webp'
+//     }
+// ]
+
 export const pailsLowerBody: models.IMovement[] = [
     {
-        name: 'Figure-4 PAILs/RAILs (Superficial Gluteal Fascia)'
+        name: '90/90 External Rotation',
+        imgUrl: '/images/pailsrails-lower-90-90-external.webp'
     },
     {
-        name: 'Standing Hamstrings PAILs/RAILs'
+        name: '90/90 Internal Rotation',
+        imgUrl: '/images/pailsrails-lower-90-90-internal.webp'
     },
     {
-        name: '90/90 External Rotation PAILs / RAILs'
+        name: 'Butterfly',
+        imgUrl: '/images/pailsrails-lower-butterfly.webp'
     },
     {
-        name: '90/90 Internal Rotation PAILs / RAILs'
+        name: 'Figure-4',
+        imgUrl: '/images/pailsrails-lower-figure4.webp'
     },
     {
-        name: 'Tibial Internal/External Rotation Using the Kimura Grip'
+        name: 'Tibial Internal/External Rotation',
+        imgUrl: '/images/pailsrails-lower-tibia.webp'
     },
     {
-        name: 'Ankle Dorsiflexion from Combat Base '
+        name: 'Ankle Dorsiflexion',
+        imgUrl: '/images/pailsrails-lower-dorsiflexion.webp'
     },
     {
-        name: 'Squat PAILS/RAILS Progression with Stall Bars (Ankle Dorsiflexion)'
+        name: 'Standing Hamstrings',
+        imgUrl: '/images/pailsrails-lower-hamstring.webp'
+    },
+    {
+        name: 'Knee Flexion',
+        imgUrl: '/images/pailsrails-lower-knee-flexion.webp'
     }
 ]
 

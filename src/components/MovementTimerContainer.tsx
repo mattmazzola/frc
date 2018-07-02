@@ -42,12 +42,7 @@ class Component extends React.Component<Props, State> {
     async componentDidMount() {
         this.isItMounted = true
         const name = this.props.movement.name
-        await this.say(name)
-        await this.say('Get ready in 10 seconds', 7000)
-        await this.say('3')
-        await this.say('2')
-        await this.say('1')
-        await this.say('Start')
+        await this.announceMove(name)
         this.start()
     }
 
@@ -61,6 +56,15 @@ class Component extends React.Component<Props, State> {
         await delay(wait)
     }
 
+    async announceMove(name: string) {
+        await this.say(name)
+        await this.say('Get ready in 10 seconds', 7000)
+        await this.say('3')
+        await this.say('2')
+        await this.say('1')
+        await this.say('Start')
+    }
+
     async componentWillReceiveProps(nextProps: Props) {
         this.pause()
         this.setState({
@@ -69,14 +73,9 @@ class Component extends React.Component<Props, State> {
             isPaused: false
         })
 
-        const name = nextProps.movement.name
-        await this.say(name)
-        await this.say('Get ready in 10 seconds', 7000)
-        await this.say('3')
-        await this.say('2')
-        await this.say('1')
-        await this.say('Start')
-
+        global.speechSynthesis.cancel()
+        await delay(750)
+        await this.announceMove(nextProps.movement.name)
         this.start()
     }
 
@@ -118,11 +117,8 @@ class Component extends React.Component<Props, State> {
                 this.props.onNextMovement()
 
                 return {
-                    seconds: 0,
-                    passive: prevState.passive,
-                    pails: prevState.pails,
-                    rails: prevState.rails,
-                    rounds: prevState.rounds
+                    ...prevState,
+                    seconds: 0
                 }
             }
 

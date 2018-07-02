@@ -13,7 +13,7 @@ const movementsSelected = Object.entries(movements).reduce((o, [key, value]: [st
     return o
 }, {}) as ISelectableMovements
 
-const carsMovements = [movementsSelected.carsLowerBody, movementsSelected.carsUpperBody, movementsSelected.spinalMovements]
+const carsMovements = [movementsSelected.spinalMovements, movementsSelected.carsUpperBody, movementsSelected.carsLowerBody]
 const selectedMovements = carsMovements
     .map(category => category.filter(s => s.checked).map(s => s.movement))
     .reduce((a, b) => a.concat(b))
@@ -70,17 +70,17 @@ export default class extends React.Component<{}, State> {
             <h1 className="frc-nav-page_title">CARS</h1>
             <main className="frc-nav-list">
                 <div className="movements">
-                    <h3>Lower Body</h3>
-                    {this.state.carsLowerBody.map((m, i) =>
-                        <Movement key={i} onClick={() => this.onClickCarsLowerBodyMovement(m)} movement={m} />
+                    <h3>Spinal</h3>
+                    {this.state.spinalMovements.map((m, i) =>
+                        <Movement key={i} onClick={() => this.onClickSpinalMovementsMovements(m)} movement={m} />
                     )}
                     <h3>Upper Body</h3>
                     {this.state.carsUpperBody.map((m, i) =>
                         <Movement key={i} onClick={() => this.onClickCarsUpperBodyMovements(m)} movement={m} />
                     )}
-                    <h3>Spinal</h3>
-                    {this.state.spinalMovements.map((m, i) =>
-                        <Movement key={i} onClick={() => this.onClickSpinalMovementsMovements(m)} movement={m} />
+                    <h3>Lower Body</h3>
+                    {this.state.carsLowerBody.map((m, i) =>
+                        <Movement key={i} onClick={() => this.onClickCarsLowerBodyMovement(m)} movement={m} />
                     )}
                 </div>
             </main>

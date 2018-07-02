@@ -4,9 +4,9 @@ import { AT } from '../types/ActionTypes'
 import { Reducer } from 'redux'
 
 const initialState: CarsSettingsState = {
-    clockwiseRotations: 3,
-    counterClockwiseRotations: 3,
-    duration: 10
+    clockwiseRotations: 2,
+    counterClockwiseRotations: 2,
+    duration: 5
 }
 
 const reducer: Reducer<CarsSettingsState> = (state = initialState, action: ActionObject): CarsSettingsState => {
