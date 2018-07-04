@@ -6,7 +6,7 @@ import { Reducer } from 'redux'
 const initialState: CarsSettingsState = {
     clockwiseRotations: 2,
     counterClockwiseRotations: 2,
-    duration: 5
+    duration: 10
 }
 
 const reducer: Reducer<CarsSettingsState> = (state = initialState, action: ActionObject): CarsSettingsState => {

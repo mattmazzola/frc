@@ -3,16 +3,8 @@ export interface IMovement {
     imgUrl?: string
 }
 
-export interface ISelectableMovements {
-    carsLowerBody: ISelectableMovement[]
-    carsUpperBody: ISelectableMovement[]
-    spinalMovements: ISelectableMovement[]
-    pailsLowerBody: ISelectableMovement[]
-    pailsUpperBody: ISelectableMovement[]
-}
-
 export interface ISelectableMovement {
+    id: string
     movement: IMovement
     checked: boolean
 }
-

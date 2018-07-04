@@ -7,36 +7,20 @@ import { RouteComponentProps } from 'react-router'
 import { IMovement } from '../types';
 
 interface Props extends RouteComponentProps<any> {
+    movements: IMovement[]
     render: (currentMovement: IMovement, onNextMovement: () => void) => React.ReactNode
 }
 
 interface State {
-    movements: IMovement[]
     currentMovementIndex: number
 }
 
 export default class Runner extends React.Component<Props, State> {
-    componentWillMount() {
-        console.log(`componentWillMount: `, this.props)
-        const { history, location } = this.props
-        const movements: IMovement[] = location.state
-
-        if (!Array.isArray(movements) || movements.length === 0) {
-            history.replace('/')
-        }
-
-        this.setState({
-            movements,
-            currentMovementIndex: 0
-        })
-    }
-    componentWillReceiveProps(nextProps: any) {
-        console.log(`componentWillReceiveProps: `, nextProps)
+    state = {
+        currentMovementIndex: 0
     }
 
     onClickPrev = () => {
-        console.log(`onClickPrev`)
-
         this.setState(prevState => ({
             ...prevState,
             currentMovementIndex: Math.max(prevState.currentMovementIndex - 1, 0)
@@ -44,16 +28,14 @@ export default class Runner extends React.Component<Props, State> {
     }
 
     onClickNext = () => {
-        console.log(`onClickNext`)
-
         this.setState(prevState => ({
             ...prevState,
-            currentMovementIndex: Math.min(prevState.currentMovementIndex + 1, prevState.movements.length - 1)
+            currentMovementIndex: Math.min(prevState.currentMovementIndex + 1, this.props.movements.length - 1)
         }))
     }
 
     onNextMovement = () => {
-        const nextMovement = this.getNextMovement(this.state)
+        const nextMovement = this.getNextMovement(this.state, this.props)
 
         if (!nextMovement) {
             return
@@ -62,25 +44,34 @@ export default class Runner extends React.Component<Props, State> {
         this.onClickNext()
     }
 
-    private getPrevMovement(state: State) {
+    private getPrevMovement(state: State, props: Props) {
         const prevIndex = state.currentMovementIndex - 1
         return prevIndex < 0
             ? undefined
-            : state.movements[prevIndex]
+            : props.movements[prevIndex]
     }
 
-    private getNextMovement(state: State) {
+    private getNextMovement(state: State, props: Props) {
         const nextIndex = state.currentMovementIndex + 1
-        return nextIndex > state.movements.length - 1
+        return nextIndex > props.movements.length - 1
             ? undefined
-            : state.movements[nextIndex]
+            : props.movements[nextIndex]
     }
 
     render() {
-        const prevMovement = this.getPrevMovement(this.state)
-        const currentMovement = this.state.movements[this.state.currentMovementIndex]
-        const nextMovement = this.getNextMovement(this.state)
+        const prevMovement = this.getPrevMovement(this.state, this.props)
+        const currentMovement = this.props.movements[this.state.currentMovementIndex]
+        const nextMovement = this.getNextMovement(this.state, this.props)
         console.log(`currentMovement: `, currentMovement)
+
+        if (!currentMovement) {
+            return <div className="frc-page">
+                <NavLink className="frc-page_header" to="/"><i className="material-icons">arrow_back</i> Program</NavLink>
+                <main className="frc-page_main">
+                    <h1>Error</h1>
+                </main>
+            </div>
+        }
 
         return <div className="frc-page">
             <NavLink className="frc-page_header" to="/"><i className="material-icons">arrow_back</i> Program</NavLink>
