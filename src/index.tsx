@@ -6,14 +6,31 @@ import './reset.css'
 import './index.css'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import { ReduxState } from './types'
 import rootReducer from './reducers'
+import { throttle } from 'lodash'
+import { load, save } from './services/localStorage'
 
-export const createReduxStore = () => createStore(
-  rootReducer
+const persistedState: Partial<ReduxState> = load()
+
+const store = createStore(
+  rootReducer,
+  persistedState
 )
 
+store.subscribe(throttle(() => {
+  const state = store.getState()
+  const stateToPersist = {
+    carsSettings: state.carsSettings,
+    pailsRailsSettings: state.settings
+  }
+
+  save(stateToPersist)
+  console.log(JSON.stringify(stateToPersist))
+}, 1000))
+
 ReactDOM.render(
-  <Provider store={createReduxStore()}>
+  <Provider store={store}>
     <Root />
   </Provider>,
   document.getElementById('root') as HTMLElement
