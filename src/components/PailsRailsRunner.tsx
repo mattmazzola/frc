@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { IMovement } from "../types"
 import * as moment from 'moment'
-import './MovementTimer.css'
+import './PailsRailsRunner.css'
 
 interface ReceivedProps {
     movement: IMovement

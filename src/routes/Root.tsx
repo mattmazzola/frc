@@ -14,7 +14,7 @@ import CarsSettings from './CarsSettings'
 import CarsRunnerContainer from '../components/CarsRunnerContainer'
 import PailsRails from './PailsRails'
 import MovementTimerContainer from '../components/MovementTimerContainer'
-import Settings from './Settings'
+import PailsRailsSettings from './PailsRailsSettings'
 import Runner from './Runner'
 import NoMatch from './NoMatch'
 import './Root.css'
@@ -38,7 +38,7 @@ class Component extends React.Component<Props, {}> {
                         />}
                     />
                     <Route path="/pailsrails" exact={true} component={PailsRails} />
-                    <Route path="/pailsrails/settings" exact={true} component={Settings} />
+                    <Route path="/pailsrails/settings" exact={true} component={PailsRailsSettings} />
                     <Route path="/pailsrails/runner" exact={true} render={props =>
                         <Runner {...props} movements={selectedPailsRailsMovements} render={(currentMovement, onNextMovement) =>
                             <MovementTimerContainer

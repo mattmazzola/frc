@@ -4,9 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect, Dispatch } from 'react-redux'
 import { ReduxState } from '../types'
 import { IMovement } from "../types"
-import './MovementTimer.css'
-import MovementTimer from './MovementTimer'
-import { delay } from '../services/utilities';
+import MovementTimer from './PailsRailsRunner'
+import { delay } from '../services/utilities'
 
 interface State {
     seconds: number
