@@ -192,11 +192,19 @@ export const pailsUpperBody: models.IMovement[] = [
 
 export const pailsLowerBody: models.IMovement[] = [
     {
-        name: '90/90 External Rotation',
+        name: '90/90 External Rotation (Right)',
         imgUrl: '/images/pailsrails-lower-90-90-external.webp'
     },
     {
-        name: '90/90 Internal Rotation',
+        name: '90/90 Internal Rotation (Right)',
+        imgUrl: '/images/pailsrails-lower-90-90-internal.webp'
+    },
+    {
+        name: '90/90 External Rotation (Left)',
+        imgUrl: '/images/pailsrails-lower-90-90-external.webp'
+    },
+    {
+        name: '90/90 Internal Rotation (Left)',
         imgUrl: '/images/pailsrails-lower-90-90-internal.webp'
     },
     {
@@ -204,23 +212,43 @@ export const pailsLowerBody: models.IMovement[] = [
         imgUrl: '/images/pailsrails-lower-butterfly.webp'
     },
     {
-        name: 'Figure-4',
+        name: 'Figure-4 (Right)',
         imgUrl: '/images/pailsrails-lower-figure4.webp'
     },
     {
-        name: 'Tibial Internal/External Rotation',
+        name: 'Figure-4 (Left)',
+        imgUrl: '/images/pailsrails-lower-figure4.webp'
+    },
+    {
+        name: 'Tibial Internal/External Rotation (Right)',
         imgUrl: '/images/pailsrails-lower-tibia.webp'
     },
     {
-        name: 'Ankle Dorsiflexion',
+        name: 'Tibial Internal/External Rotation (Left)',
+        imgUrl: '/images/pailsrails-lower-tibia.webp'
+    },
+    {
+        name: 'Ankle Dorsiflexion (Right)',
         imgUrl: '/images/pailsrails-lower-dorsiflexion.webp'
     },
     {
-        name: 'Standing Hamstrings',
+        name: 'Ankle Dorsiflexion (Left)',
+        imgUrl: '/images/pailsrails-lower-dorsiflexion.webp'
+    },
+    {
+        name: 'Standing Hamstrings (Right)',
         imgUrl: '/images/pailsrails-lower-hamstring.webp'
     },
     {
-        name: 'Knee Flexion',
+        name: 'Standing Hamstrings (Left)',
+        imgUrl: '/images/pailsrails-lower-hamstring.webp'
+    },
+    {
+        name: 'Knee Flexion (Right)',
+        imgUrl: '/images/pailsrails-lower-knee-flexion.webp'
+    },
+    {
+        name: 'Knee Flexion (Left)',
         imgUrl: '/images/pailsrails-lower-knee-flexion.webp'
     }
 ]
