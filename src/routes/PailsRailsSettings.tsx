@@ -67,7 +67,7 @@ const mapDispatchToProps = (dispatch: Dispatch<ReduxState>) => {
 }
 const mapStateToProps = (state: ReduxState) => {
     return {
-        settings: state.settings
+        settings: state.pailsRailsSettings
     }
 }
 

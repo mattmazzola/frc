@@ -22,7 +22,7 @@ store.subscribe(throttle(() => {
   const state = store.getState()
   const stateToPersist = {
     carsSettings: state.carsSettings,
-    pailsRailsSettings: state.settings
+    pailsRailsSettings: state.pailsRailsSettings
   }
 
   save(stateToPersist)

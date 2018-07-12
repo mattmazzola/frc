@@ -1,16 +1,16 @@
 import { ActionObject } from '../types'
-import { SettingsState } from '../types'
+import { PailsRailsSettingsState } from '../types'
 import { AT } from '../types/ActionTypes'
 import { Reducer } from 'redux'
 
-const initialState: SettingsState = {
+const initialState: PailsRailsSettingsState = {
     passive: 10,
     pails: 5,
     rails: 5,
     rounds: 2
 }
 
-const reducer: Reducer<SettingsState> = (state = initialState, action: ActionObject): SettingsState => {
+const reducer: Reducer<PailsRailsSettingsState> = (state = initialState, action: ActionObject): PailsRailsSettingsState => {
     switch (action.type) {
         case AT.SETTINGS_RESET: {
             return initialState
