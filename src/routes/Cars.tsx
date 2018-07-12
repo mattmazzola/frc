@@ -7,7 +7,7 @@ import { ReduxState } from '../types'
 import { carsToggleMovement } from '../actions'
 import Movement from '../components/Movement'
 
-export class Component extends React.Component<Props, {}> {
+class Component extends React.Component<Props, {}> {
     render() {
         return <div className="frc-nav-page">
             <NavLink className="frc-nav-page_header" to="/"><i className="material-icons">arrow_back</i> Main</NavLink>

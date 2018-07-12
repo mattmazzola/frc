@@ -13,7 +13,7 @@ import Cars from './Cars'
 import CarsSettings from './CarsSettings'
 import CarsRunnerContainer from '../components/CarsRunnerContainer'
 import PailsRails from './PailsRails'
-import MovementTimerContainer from '../components/MovementTimerContainer'
+import PailsRailsRunnerContainer from '../components/PailsRailsRunnerContainer'
 import PailsRailsSettings from './PailsRailsSettings'
 import Runner from './Runner'
 import NoMatch from './NoMatch'
@@ -41,7 +41,7 @@ class Component extends React.Component<Props, {}> {
                     <Route path="/pailsrails/settings" exact={true} component={PailsRailsSettings} />
                     <Route path="/pailsrails/runner" exact={true} render={props =>
                         <Runner {...props} movements={selectedPailsRailsMovements} render={(currentMovement, onNextMovement) =>
-                            <MovementTimerContainer
+                            <PailsRailsRunnerContainer
                                 movement={currentMovement}
                                 onNextMovement={onNextMovement}
                             />}

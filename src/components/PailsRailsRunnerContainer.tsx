@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect, Dispatch } from 'react-redux'
 import { ReduxState } from '../types'
 import { IMovement } from "../types"
-import MovementTimer from './PailsRailsRunner'
+import PailsRailsRunner from './PailsRailsRunner'
 import { delay } from '../services/utilities'
 
 interface State {
@@ -154,7 +154,7 @@ class Component extends React.Component<Props, State> {
 
     render() {
         const { settings } = this.props
-        return <MovementTimer
+        return <PailsRailsRunner
             movement={this.props.movement}
             isPaused={this.state.isPaused}
             maxPassive={settings.passive}
