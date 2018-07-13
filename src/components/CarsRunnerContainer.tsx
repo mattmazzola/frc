@@ -41,8 +41,6 @@ class Test extends React.Component<Props, State> {
     
     async componentDidMount() {
         this.isItMounted = true
-        const name = this.props.movement.name
-        await this.announceMove(name)
         this.start()
     }
 
@@ -56,15 +54,6 @@ class Test extends React.Component<Props, State> {
         await delay(wait)
     }
 
-    async announceMove(name: string) {
-        await this.say(name)
-        await this.say('Get ready in 10 seconds', 7000)
-        await this.say('3')
-        await this.say('2')
-        await this.say('1')
-        await this.say('Start')
-    }
-
     async componentWillReceiveProps(nextProps: Props) {
         this.pause()
         this.setState({
@@ -74,8 +63,6 @@ class Test extends React.Component<Props, State> {
         })
 
         global.speechSynthesis.cancel()
-        await delay(500)
-        await this.announceMove(nextProps.movement.name)
         this.start()
     }
     
@@ -105,13 +92,14 @@ class Test extends React.Component<Props, State> {
     }
 
     run() {
-        const { settings } = this.props
+        const { movement, settings } = this.props
+        const leadTime = 10
         const totalRoundSeconds = settings.duration
-        const totalSeconds = settings.duration * (settings.clockwiseRotations + settings.counterClockwiseRotations)
+        const totalSeconds = leadTime + totalRoundSeconds * (settings.clockwiseRotations + settings.counterClockwiseRotations)
 
         this.setState(prevState => {
             const nextSeconds = prevState.seconds + 1
-            const numRotations = Math.floor(nextSeconds / totalRoundSeconds)
+            const numRotations = Math.floor(Math.max(nextSeconds - leadTime, 0) / totalRoundSeconds)
 
             if (nextSeconds === totalSeconds) {
                 this.pause()
@@ -124,17 +112,41 @@ class Test extends React.Component<Props, State> {
                 }
             }
 
-            const timeIntoRotation = nextSeconds % totalRoundSeconds
+            if (nextSeconds === 1) {
+                this.say(`${movement.name} Get Ready in ${leadTime} seconds`)
+            }
+            else if (nextSeconds === 7) {
+                this.say('3')
+            }
+            else if (nextSeconds === 8) {
+                this.say('2')
+            }
+            else if (nextSeconds === 9) {
+                this.say('1')
+            }
+            else if (nextSeconds === 10) {
+                this.say('Start')
+                this.say('Clockwise Rotations')
+            }
 
+            const timeIntoRotation = Math.max(nextSeconds - leadTime, 0) % totalRoundSeconds
             const clockwiseRotations = Math.min(settings.clockwiseRotations, numRotations)
             const counterClockwiseRotations = Math.min(settings.counterClockwiseRotations, numRotations - clockwiseRotations)
-
-            return {
+            const nextState = {
                 seconds: nextSeconds,
                 timeIntoRotation: settings.duration - timeIntoRotation,
                 clockwiseRotations: settings.clockwiseRotations - clockwiseRotations,
                 counterClockwiseRotations: settings.counterClockwiseRotations - counterClockwiseRotations
             }
+            
+            if (prevState.clockwiseRotations !== nextState.clockwiseRotations) {
+                this.say(`Round: ${clockwiseRotations}`)
+            }
+            if (prevState.counterClockwiseRotations !== nextState.counterClockwiseRotations) {
+                this.say(`Round: ${counterClockwiseRotations}`)
+            }
+
+            return nextState
         })
     }
 

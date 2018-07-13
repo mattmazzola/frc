@@ -40,8 +40,6 @@ class Component extends React.Component<Props, State> {
 
     async componentDidMount() {
         this.isItMounted = true
-        const name = this.props.movement.name
-        await this.announceMove(name)
         this.start()
     }
 
@@ -73,8 +71,6 @@ class Component extends React.Component<Props, State> {
         })
 
         global.speechSynthesis.cancel()
-        await delay(750)
-        await this.announceMove(nextProps.movement.name)
         this.start()
     }
 
@@ -104,12 +100,13 @@ class Component extends React.Component<Props, State> {
     }
 
     run() {
-        const { settings } = this.props
+        const { movement, settings } = this.props
+        const leadTime = 10
         const totalRoundSeconds = settings.passive + settings.pails + settings.rails
 
         this.setState(prevState => {
             const nextSeconds = prevState.seconds + 1
-            const nextRound = Math.floor(nextSeconds / totalRoundSeconds)
+            const nextRound = Math.floor(Math.max(nextSeconds - leadTime, 0) / totalRoundSeconds)
 
             if (nextRound === settings.rounds) {
                 this.pause()
@@ -121,8 +118,23 @@ class Component extends React.Component<Props, State> {
                 }
             }
 
-            const timeIntoNextRound = nextSeconds % totalRoundSeconds
+            if (nextSeconds === 1) {
+                this.say(`${movement.name} Get Ready in ${leadTime} seconds`)
+            }
+            else if (nextSeconds === 7) {
+                this.say('3')
+            }
+            else if (nextSeconds === 8) {
+                this.say('2')
+            }
+            else if (nextSeconds === 9) {
+                this.say('1')
+            }
+            else if (nextSeconds === 10) {
+                this.say('Start')
+            }
 
+            const timeIntoNextRound = Math.max(nextSeconds - leadTime, 0) % totalRoundSeconds
             if (timeIntoNextRound === 1) {
                 this.say('Passive')
             }
