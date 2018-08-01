@@ -29,12 +29,12 @@ export default function (props: ReceivedProps) {
     const imgUrl = props.movement.imgUrl || "//via.placeholder.com/350x150"
     return <div className="movement-timer">
         <div className="movement-timer_name">{props.movement.name}</div>
-        <img src={imgUrl} alt={`Person demonstrating the move: ${props.movement.name}`} width="100%" />
+        <div className="movement-timer_img" style={{backgroundImage: `url('${imgUrl}')`}}></div>
         <div>
             <div className="movement-timer_timers">
                 <div className="movement-timer_value"><span>{props.clockwiseRotations}</span><span>/</span><span>{props.clockwiseRotationsMax}</span></div><div>CW</div>
                 <div className="movement-timer_value"><span>{props.counterClockwiseRotations}</span><span>/</span><span>{props.counterClockwiseRotationsMax}</span></div><div>CCW</div>
-                <div className="movement-timer_value"><span>{getDurationString(props.seconds)}</span><span>/</span><span>{getDurationString(props.duration)}</span></div><div>sec / rotation</div>
+                <div className="movement-timer_value"><span>{getDurationString(props.seconds)}</span><span>/</span><span>{getDurationString(props.duration)}</span></div><div>sec</div>
             </div>
         </div>
         <div className="movement-timer_buttons">

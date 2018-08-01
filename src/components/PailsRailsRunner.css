@@ -1,6 +1,6 @@
 .movement-timer {
     display: grid;
-    grid-template: min-content min-content 1fr min-content / auto;
+    grid-template: min-content 1fr min-content min-content / auto;
 }
 .movement-timer_name {
     padding: 0.5em;
@@ -8,13 +8,32 @@
     font-size: 3rem;
     line-height: 3.2rem;
 }
+.movement-timer_img {
+    background-size: cover;
+    background-position: 50% 100%;
+    background-repeat: no-repeat no-repeat;
+}
 
 .movement-timer_timers {
     display: grid;
-    grid-template: auto / 1fr 1fr;
+    grid-template: auto / 4fr 3fr;
     grid-gap: 0.3em 0.5em;
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-top: 1rem;
+}
+
+@media(max-width: 400px) {
+    .movement-timer_name {
+        font-size: 2.3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .movement-timer_timers {
+        grid-gap: 0.2em 0.3em;
+        font-size: 2.3rem;
+    }
 }
 
 .movement-timer_value {
@@ -26,7 +45,7 @@
 
 .movement-timer_buttons {
     padding: 1rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .movement-timer_buttons i {

@@ -15,6 +15,7 @@ body {
 .frc_header {
   text-align: center;
   font-size: 3rem;
+  padding: 0.5em 0;
 }
 
 .frc_main {
@@ -37,7 +38,7 @@ body {
   display: grid;
   grid-gap: 1em;
   grid-template: auto / 2fr 3fr;
-  padding: 1.5em 2em;
+  padding: 1em;
 }
 
 
@@ -62,7 +63,6 @@ body {
   }
 
   .frc_footer .link {
-    font-size: 1rem;
     padding: 0.5em 1em;
   }
 }

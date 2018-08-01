@@ -30,7 +30,8 @@ export default function (props: ReceivedProps) {
 
     return <div className="movement-timer">
         <div className="movement-timer_name">{props.movement.name}</div>
-        <img src={imgUrl} alt={`Person demonstrating the move: ${props.movement.name}`} width="100%" />
+        <div className="movement-timer_img" style={{backgroundImage: `url('${imgUrl}')`}}>
+        </div>
         <div>
             <div className="movement-timer_timers">
                 <div className="movement-timer_value"><span>{getDurationString(props.passive)}</span><span>/</span><span>{getDurationString(props.maxPassive)}</span></div><div>Passive</div>
