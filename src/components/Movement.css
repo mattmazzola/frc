@@ -2,6 +2,6 @@
     cursor: pointer;
 }
 .movement_icon {
-    vertical-align: sub;
+    vertical-align: middle;
     margin-right: 1em;
 }
