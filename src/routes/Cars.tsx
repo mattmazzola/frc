@@ -10,7 +10,10 @@ import Movement from '../components/Movement'
 class Component extends React.Component<Props, {}> {
     render() {
         return <div className="frc-nav-page">
-            <NavLink className="frc-nav-page_header" to="/"><i className="material-icons">arrow_back</i> Main</NavLink>
+            <NavLink className="frc-nav-page_header" to="/">
+                <i className="material-icons">arrow_back</i>
+                <div>Main</div>
+            </NavLink>
             <h1 className="frc-nav-page_title">CARS</h1>
             <main className="frc-nav-list">
                 <div className="movements">

@@ -8,6 +8,10 @@
     padding: 1em;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     transition: background-color 0.1s ease-in;
+
+    display: grid;
+    grid-template: auto / min-content 1fr;
+    grid-gap: 1em;
 }
 
 .frc-page_header:hover {
@@ -41,6 +45,9 @@
     padding: 1em;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     transition: background-color 0.1s ease-in;
+    display: grid;
+    grid-template: auto / min-content 1fr;
+    grid-gap: 1em;
 }
 
 .frc-nav-page_header:hover {

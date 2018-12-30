@@ -34,7 +34,10 @@ class Settings extends React.Component<Props, {}> {
     }
     render() {
         return <div className="frc-page">
-            <NavLink className="frc-page_header" to="/"><i className="material-icons">arrow_back</i> Main</NavLink>
+            <NavLink className="frc-page_header" to="/pailsrails">
+                <i className="material-icons">arrow_back</i>
+                <div>Pails/Rails</div>
+            </NavLink>
             <main className="frc-page_main">
                 <section className="settings">
                     <div>
