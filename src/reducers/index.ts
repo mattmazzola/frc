@@ -5,7 +5,7 @@ import carsSettingsReducer from './carsSettingsReducer'
 import pailsRailsSettingsReducer from './pailsRailsSettingsReducer'
 import { ReduxState } from '../types'
 
-export default combineReducers<ReduxState>({
+export default combineReducers<Partial<ReduxState>>({
     cars: carsReducer,
     carsSettings: carsSettingsReducer,
     pailsRails: pailsRailsReducer,

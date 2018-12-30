@@ -183,4 +183,4 @@ const stateProps = returntypeof(mapStateToProps)
 const dispatchProps = returntypeof(mapDispatchToProps)
 type Props = typeof stateProps & typeof dispatchProps & ReceivedProps
 
-export default connect<typeof stateProps, typeof dispatchProps, {}>(mapStateToProps, mapDispatchToProps)(Test)
+export default connect(mapStateToProps, mapDispatchToProps)(Test)
