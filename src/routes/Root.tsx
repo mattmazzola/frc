@@ -26,10 +26,10 @@ class Component extends React.Component<Props, {}> {
         return (
             <Router basename={`${process.env.PUBLIC_URL}`}>
                 <Switch>
-                    <Route path={`${process.env.PUBLIC_URL}/`} exact={true} component={App} />
-                    <Route path={`${process.env.PUBLIC_URL}/cars`} exact={true} component={Cars} />
-                    <Route path={`${process.env.PUBLIC_URL}/cars/settings`} exact={true} component={CarsSettings} />
-                    <Route path={`${process.env.PUBLIC_URL}/cars/runner`} exact={true} render={props =>
+                    <Route path="/" exact={true} component={App} />
+                    <Route path="/cars" exact={true} component={Cars} />
+                    <Route path="/cars/settings" exact={true} component={CarsSettings} />
+                    <Route path="/cars/runner" exact={true} render={props =>
                         <Runner
                             {...props}
                             movements={selectedCarsMovements}
@@ -40,9 +40,9 @@ class Component extends React.Component<Props, {}> {
                                 />}
                         />}
                     />
-                    <Route path={`${process.env.PUBLIC_URL}/pailsrails`} exact={true} component={PailsRails} />
-                    <Route path={`${process.env.PUBLIC_URL}/pailsrails/settings`} exact={true} component={PailsRailsSettings} />
-                    <Route path={`${process.env.PUBLIC_URL}/pailsrails/runner`} exact={true} render={props =>
+                    <Route path="/pailsrails" exact={true} component={PailsRails} />
+                    <Route path="/pailsrails/settings" exact={true} component={PailsRailsSettings} />
+                    <Route path="/pailsrails/runner" exact={true} render={props =>
                         <Runner
                             {...props}
                             movements={selectedPailsRailsMovements}
