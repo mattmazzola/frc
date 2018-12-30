@@ -7,7 +7,7 @@ class App extends React.Component {
     return (
       <div className="frc">
         <header className="frc_header">
-          <h1>FRC</h1>
+          <h1>Unofficial<br />FRC Trainer</h1>
         </header>
         <main className="frc_main">
           <NavLink to="/cars" exact={true} className="frc-nav-link">CARs</NavLink>
