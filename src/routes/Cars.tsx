@@ -14,7 +14,7 @@ class Component extends React.Component<Props, {}> {
                 <i className="material-icons">arrow_back</i>
                 <div>Main</div>
             </NavLink>
-            <h1 className="frc-nav-page_title">CARS</h1>
+            <h1 className="frc-nav-page_title">CARs</h1>
             <main className="frc-nav-list">
                 <div className="movements">
                     {this.props.movements.map((m, i) =>
