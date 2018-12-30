@@ -26,7 +26,7 @@ function getDurationString(seconds: number) {
 }
 
 export default function (props: ReceivedProps) {
-    const imgUrl = props.movement.imgUrl || "//via.placeholder.com/350x150"
+    const imgUrl = `${process.env.PUBLIC_URL}${props.movement.imgUrl}` || "//via.placeholder.com/350x150"
     return <div className="movement-timer">
         <div className="movement-timer_name">{props.movement.name}</div>
         <div className="movement-timer_img" style={{backgroundImage: `url('${imgUrl}')`}}></div>
