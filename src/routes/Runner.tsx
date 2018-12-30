@@ -7,6 +7,7 @@ import { RouteComponentProps } from 'react-router'
 import { IMovement } from '../types';
 
 interface Props extends RouteComponentProps<any> {
+    backLabel?: string
     movements: IMovement[]
     render: (currentMovement: IMovement, onNextMovement: () => void) => React.ReactNode
 }
@@ -16,6 +17,10 @@ interface State {
 }
 
 export default class Runner extends React.Component<Props, State> {
+    static defaultProps: Partial<Props> = {
+        backLabel: 'Program'
+    }
+
     state = {
         currentMovementIndex: 0
     }
@@ -66,7 +71,10 @@ export default class Runner extends React.Component<Props, State> {
 
         if (!currentMovement) {
             return <div className="frc-page">
-                <NavLink className="frc-page_header" to="/"><i className="material-icons">arrow_back</i> Program</NavLink>
+                <NavLink className="frc-page_header" to="/">
+                    <i className="material-icons">arrow_back</i>
+                    <div>{this.props.backLabel}</div>
+                </NavLink>
                 <main className="frc-page_main">
                     <h1>Error</h1>
                 </main>
@@ -74,14 +82,19 @@ export default class Runner extends React.Component<Props, State> {
         }
 
         return <div className="frc-page">
-            <NavLink className="frc-page_header" to="/"><i className="material-icons">arrow_back</i> Program</NavLink>
+            <NavLink className="frc-page_header" to="/">
+                <i className="material-icons">arrow_back</i>
+                <div>{this.props.backLabel}</div>
+            </NavLink>
             <main className="frc-page_main">
                 <header className="frc-movement_header">
                     <div className="frc-movement_prev" onClick={this.onClickPrev}>
-                        <div className="frc-movement_prev-icon"><i className="material-icons">arrow_back</i></div><div className="frc-movement_prev-text frc-o-nowrap">{prevMovement ? prevMovement.name : 'Start'}</div>
+                        <div className="frc-movement_prev-icon"><i className="material-icons">arrow_back</i></div>
+                        <div className="frc-movement_prev-text frc-o-nowrap">{prevMovement ? prevMovement.name : 'Start'}</div>
                     </div>
                     <div className="frc-movement_next" onClick={this.onClickNext}>
-                        <div className="frc-movement_prev-text frc-o-nowrap">{nextMovement ? nextMovement.name : 'End'}</div><div className="frc-movement_prev-icon"><i className="material-icons">arrow_forward</i></div>
+                        <div className="frc-movement_prev-text frc-o-nowrap">{nextMovement ? nextMovement.name : 'End'}</div>
+                        <div className="frc-movement_prev-icon"><i className="material-icons">arrow_forward</i></div>
                     </div>
                 </header>
                 {this.props.render(currentMovement, this.onNextMovement)}

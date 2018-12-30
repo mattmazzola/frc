@@ -5,7 +5,6 @@ import { Reducer } from 'redux'
 import produce from 'immer'
 import * as movements from '../services/movements'
 
-
 const carsMovements = [...movements.spinalMovements, ...movements.carsUpperBody, ...movements.carsLowerBody]
 const selectedMovements = carsMovements
     .map<ISelectableMovement>(m =>
