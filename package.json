@@ -2,7 +2,7 @@
   "name": "frc",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mattmazzola.github.io/frc",
+  "homepage": "https://frc.surge.sh",
   "dependencies": {
     "immer": "^1.3.1",
     "lodash": "^4.17.10",
@@ -21,7 +21,8 @@
     "now-start": "serve --single ./build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && npx surge -p ./build --domain https://frc.surge.sh"
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
