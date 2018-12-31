@@ -18,10 +18,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "now-start": "serve --single ./build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "now-deploy": "cd build && now --name frc",
     "deploy": "npm run build && npx surge -p ./build --domain https://frc.surge.sh"
   },
   "devDependencies": {
